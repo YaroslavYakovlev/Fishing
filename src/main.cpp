@@ -4,13 +4,20 @@
 int main(){
   std::cout << "Fishing" << std::endl;
   std::string fish;
-  std::ofstream file_river("..\\src\\File\\river.txt");
+  std::string buffer;
+  std::ifstream file_river("..\\src\\File\\river.txt");
   std::ofstream file_basket("..\\src\\File\\basket.txt", std::ios::app);
 
   if(file_river && file_basket){
     std::cout << "Enter name fish." << std::endl;
     std::cin >> fish;
-    file_basket << fish << "\n";
+    while (!file_river.eof()){
+      file_river >> buffer;
+      if(fish == buffer){
+        file_basket << fish << "\n";
+        break;
+      }
+    }    
   }else{
     std::cout << "Couldn't open the file!" << std::endl;
   }
