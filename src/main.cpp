@@ -1,8 +1,10 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 int main(){
   std::cout << "Fishing" << std::endl;
+  int count = 0;
   std::string fish;
   std::string buffer;
   std::ifstream file_river("..\\src\\File\\river.txt");
@@ -14,6 +16,7 @@ int main(){
     while (!file_river.eof()){
       file_river >> buffer;
       if(fish == buffer){
+
         file_basket << fish << "\n";
         break;
       }
@@ -21,6 +24,14 @@ int main(){
   }else{
     std::cout << "Couldn't open the file!" << std::endl;
   }
+  std::ifstream in_file_basket("..\\src\\File\\basket.txt");
+  int in_count = 0;
+  std::string word;
+  while(!in_file_basket.eof()){
+    in_file_basket >> word;
+    in_count++;
+  }
+  std::cout << "Count fish = " << in_count << std::endl;
   file_river.close();
   file_basket.close();
   return 0;
