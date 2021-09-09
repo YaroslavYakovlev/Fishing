@@ -11,29 +11,31 @@ int main(){
   std::ofstream file_basket("..\\src\\File\\basket.txt", std::ios::app);
 
   if(file_river && file_basket){
+    while(fish != "exit"){
     std::cout << "Enter name fish." << std::endl;
     std::cin >> fish;
-    while (!file_river.eof()){
-      file_river >> buffer;
-      if(fish == buffer){
-
-        file_basket << fish << "\n";
-        break;
+      while (!file_river.eof()){
+        file_river >> buffer;
+        if(fish == buffer){
+          file_basket << fish << "\n";
+          break;
+        }
       }
     }    
   }else{
     std::cout << "Couldn't open the file!" << std::endl;
   }
-  std::ifstream in_file_basket("..\\src\\File\\basket.txt");
-  int in_count = 0;
-  std::string word;
-  while(!in_file_basket.eof()){
-    in_file_basket >> word;
-    in_count++;
-  }
-  std::cout << "Count fish = " << in_count << std::endl;
+  // std::ifstream in_file_basket("..\\src\\File\\basket.txt");
+  // int in_count = 0;
+  // std::string word;
+  // while(!in_file_basket.eof()){
+  //   in_file_basket >> word;
+  //   in_count++;
+  // }
+  // std::cout << "Count fish = " << in_count << std::endl;
   file_river.close();
   file_basket.close();
+  // in_file_basket.close();
   return 0;
 }
 
