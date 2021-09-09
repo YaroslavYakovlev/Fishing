@@ -18,7 +18,7 @@ int main(){
         file_river >> buffer;
         if(fish == buffer){
           file_basket << fish << "\n";
-          break;
+          // break;
         }
       }
     }    
