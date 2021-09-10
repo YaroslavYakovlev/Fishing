@@ -18,7 +18,8 @@ int main(){
         file_river >> buffer;
         if(fish == buffer){
           file_basket << fish << "\n";
-          // break;
+          count++;
+          break;
         }
       }
     }    
@@ -32,7 +33,7 @@ int main(){
   //   in_file_basket >> word;
   //   in_count++;
   // }
-  // std::cout << "Count fish = " << in_count << std::endl;
+  std::cout << "Count fish = " << count << std::endl;
   file_river.close();
   file_basket.close();
   // in_file_basket.close();
